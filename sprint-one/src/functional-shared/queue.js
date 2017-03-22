@@ -21,8 +21,8 @@ var queueMethods = {
   },
   'dequeue': function() {
     this.hasSize--;
-    var deVal;
-    for (var key in this.storage) {
+    var deVal, key;
+    for (key in this.storage) {
       deVal = this.storage[key];
       delete this.storage[key];
       return deVal;
