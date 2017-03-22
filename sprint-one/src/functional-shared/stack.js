@@ -5,7 +5,7 @@ var Stack = function() {
   // dont use new or prototype
   
   var instance = {};
-  var storage = {};
+  instance.storage = {};
   instance.hasSize = 0;
 
   _.extend(instance, stackMethods);
@@ -13,13 +13,20 @@ var Stack = function() {
 };
 
 var stackMethods = {
-  'pop': function(value) {
-
+  'pop': function() {
+    this.hasSize--;
+    var popVal = this.storage[this.hasSize];
+    delete this.storage[this.hasSize];
+    return popVal;
   },
-  'push': function() {
-
+  'push': function(value) {
+    this.storage[this.hasSize] = value;
+    this.hasSize++;
   },
   'size': function() {
+    if (this.hasSize < 0) {
+      this.hasSize = 0;
+    }
     return this.hasSize;
   }
 
