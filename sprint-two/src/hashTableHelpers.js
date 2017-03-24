@@ -13,8 +13,11 @@
 
 var LimitedArray = function(limit) {
   var storage = [];
+  console.log("stor: ", storage);
 
   var limitedArray = {};
+  console.log('limited: ',limitedArray);
+
   limitedArray.get = function(index) {
     checkLimit(index);
     return storage[index];
@@ -53,6 +56,7 @@ var getIndexBelowMaxForKey = function(str, max) {
   }
   return hash % max;
 };
+
 
 /*
  * Complexity: What is the time complexity of the above functions?
