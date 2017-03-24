@@ -1,27 +1,26 @@
 var Set = function() {
   var set = Object.create(setPrototype);
-  set._storage = []; // fix me
+
+  set._storage = new HashTable(); // fix me
   return set;
 };
 
 var setPrototype = {};
 
 setPrototype.add = function(item) {
-  this._storage.push(item);
+  this._storage.insert(item, item);
 };
 
 setPrototype.contains = function(item) {
-  for (var i = 0; i < this._storage.length; i++) {
-    if (this._storage[i] === item) {
-      return true;
-    }
+  var found = this._storage.retrieve(item);
+  if (found === item) {
+    return true;   
   }
   return false;
 };
 
 setPrototype.remove = function(item) {
-  var index = this._storage.indexOf(item);
-  this._storage.splice(index, 1);
+  this._storage.remove(item);
 };
 
 /*
