@@ -6,6 +6,7 @@ var HashTable = function() {
   this._storage = LimitedArray(this._limit);
 };
 
+// adds to the bucket in this._storage
 HashTable.prototype.insert = function(k, v) {
   var index = getIndexBelowMaxForKey(k, this._limit);
   var bucket = this._storage.get(index) || [];
@@ -22,6 +23,7 @@ HashTable.prototype.insert = function(k, v) {
   }
 };
 
+// finds the 'value' stored in the 'key' on hash table
 HashTable.prototype.retrieve = function(k) {
   var index = getIndexBelowMaxForKey(k, this._limit);
   var bucket = this._storage.get(index);
@@ -34,6 +36,7 @@ HashTable.prototype.retrieve = function(k) {
   return undefined;
 };
 
+// deletes key:value from hash table
 HashTable.prototype.remove = function(k) {
   var index = getIndexBelowMaxForKey(k, this._limit);
   var bucket = this._storage.get(index);
