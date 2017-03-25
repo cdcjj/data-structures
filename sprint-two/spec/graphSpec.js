@@ -68,4 +68,13 @@ describe('graph', function() {
     expect(graph.hasEdge(3, 5)).to.equal(true);
     expect(graph.hasEdge(5, 5)).to.equal(true);
   });
+
+  it('should have nodes connect by edges in a symmetrical relationship', function() {
+    graph.addNode(4);
+    graph.addNode(2);
+    graph.addEdge(4, 2);
+    expect(graph.edges[2][0]).to.equal(4);
+    expect(graph.edges[4][0]).to.equal(2);
+  });
+
 });

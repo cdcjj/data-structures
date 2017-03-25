@@ -8,13 +8,18 @@ var Set = function() {
 var setPrototype = {};
 
 setPrototype.add = function(item) {
-  this._storage.insert(item, item);
+  if (typeof item === 'string') {
+    this._storage.insert(item, item);
+  }
 };
 
 setPrototype.contains = function(item) {
-  var found = this._storage.retrieve(item);
-  if (found === item) {
-    return true;   
+  if (typeof item === 'string') {
+    var found = this._storage.retrieve(item);
+    if (found === item) {
+      return true;   
+    }
+    return false;
   }
   return false;
 };

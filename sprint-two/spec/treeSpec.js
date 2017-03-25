@@ -41,4 +41,12 @@ describe('tree', function() {
     expect(tree.contains(8)).to.equal(true);
   });
 
+  it('should accept all types of values passed in', function() {
+    var allVal = ['a', undefined, true, null, [1, 2], {'a': '1'}];
+    for (var i = 0; i < allVal.length; i++) {
+      tree.addChild(i);
+      expect(tree.contains(i)).to.equal(true);
+    }
+  });
+
 });
