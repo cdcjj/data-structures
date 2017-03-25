@@ -1,8 +1,10 @@
 describe('binarySearchTree', function() {
   var binarySearchTree;
+  var array;
 
   beforeEach(function() {
     binarySearchTree = BinarySearchTree(5);
+    array = [];
   });
 
   it('should have methods named "insert", "contains", and "depthFirstLog', function() {
@@ -36,4 +38,14 @@ describe('binarySearchTree', function() {
     binarySearchTree.depthFirstLog(func);
     expect(array).to.eql([5, 2, 3]);
   });
+
+  it('should not add values already in tree', function() {
+    var func = function(value) { array.push(value); };
+    binarySearchTree.insert(2);
+    binarySearchTree.insert(3);
+    binarySearchTree.insert(5);
+    binarySearchTree.depthFirstLog(func);
+    expect(array).to.eql([5, 2, 3]);
+  });
+
 });

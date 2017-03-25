@@ -17,13 +17,13 @@ var BinarySearchTree = function(value) {
       var compareTo = compare.value;
       var node = BinarySearchTree(value);
       if (value > compareTo) {
-        if (compare.right !== undefined) {
+        if (compare.right) {
           checkLF(compare.right, value);
         } else {
           compare.right = node;
         }
       } else if (value < compareTo) {
-        if (compare.left !== undefined) {
+        if (compare.left) {
           checkLF(compare.left, value);
         } else {
           compare.left = node;  
@@ -36,7 +36,6 @@ var BinarySearchTree = function(value) {
   // "contains": accepts a value and returns a boolean reflecting whether or not the value is contained in the tree.
   instance.contains = function(target) {
     var result;
-
     var checkEquality = function (target, compare) {
       var nextComp;
       if (compare.value === target) {

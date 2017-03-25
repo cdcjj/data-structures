@@ -6,7 +6,6 @@ var Stack = function() {
   var size = 0;
   // Implement the methods below
   someInstance.push = function(value) {
-    console.log('push    ', storage);
     storage[size] = value;
     size++;
   };
@@ -24,6 +23,5 @@ var Stack = function() {
     }
     return size;
   };
-  console.log('storge out side  ', storage);
   return someInstance;
 };

@@ -69,6 +69,16 @@ define([
         expect(stack.pop()).to.equal('b');
       });
 
+      it( 'doesn\'t allow non string items', function() {
+        stack.push(6);
+        stack.push(null);
+        stack.push(true);
+        stack.push({'a': '1'});
+        stack.push([1, 2, 3, 4]);
+        expect(stack.size()).to.equal(0);
+      });
+
+
     });
 
     describe('stack-specific behavior', function() {
