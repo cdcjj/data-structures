@@ -24,6 +24,7 @@ describe('set', function() {
     expect(set.contains('Mel Gibson')).to.equal(false);
   });
 
+  // added additional tests
   it('should only handle strings', function() {
     set.add(1);
     expect(set.contains(1)).to.equal(false);

@@ -1,10 +1,8 @@
 describe('binarySearchTree', function() {
   var binarySearchTree;
-  var array;
 
   beforeEach(function() {
     binarySearchTree = BinarySearchTree(5);
-    array = [];
   });
 
   it('should have methods named "insert", "contains", and "depthFirstLog', function() {
@@ -39,7 +37,9 @@ describe('binarySearchTree', function() {
     expect(array).to.eql([5, 2, 3]);
   });
 
+  // added additional test
   it('should not add values already in tree', function() {
+    var array = [];
     var func = function(value) { array.push(value); };
     binarySearchTree.insert(2);
     binarySearchTree.insert(3);

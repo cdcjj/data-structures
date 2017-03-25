@@ -47,6 +47,7 @@ describe('hashTable', function() {
     window.getIndexBelowMaxForKey = oldHashFunction;
   });
 
+  // added additional tests
   it('should have two arguments passed into insert', function() {
     hashTable.insert('val1');
     expect(hashTable.retrieve('val1')).to.equal(undefined);

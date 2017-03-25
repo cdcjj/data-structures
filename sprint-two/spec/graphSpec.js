@@ -69,6 +69,7 @@ describe('graph', function() {
     expect(graph.hasEdge(5, 5)).to.equal(true);
   });
 
+  // added additional test
   it('should have nodes connect by edges in a symmetrical relationship', function() {
     graph.addNode(4);
     graph.addNode(2);
