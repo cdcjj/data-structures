@@ -30,4 +30,17 @@ describe('set', function() {
     expect(set.contains(1)).to.equal(false);
   });
 
+  xit('should be able to handle numbers also', function () {
+    set.add(1);
+    expect(set.contains(1)).to.equal(true);
+  });
+
+  xit('should accept all types of values passed in', function() {
+    var allVal = ['a', undefined, true, null, [1, 2], {'a': '1'}];
+    for (var i = 0; i < allVal.length; i++) {
+      linkedList.addToTail(i);
+      expect(linkedList.contains(i)).to.equal(true);
+    }
+  });
+
 });

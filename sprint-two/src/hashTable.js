@@ -51,7 +51,6 @@ HashTable.prototype.remove = function(k) {
   
   for (var buckIndex = 0; buckIndex < bucket.length; buckIndex++) {
     if (bucket[buckIndex][0] === k) {
-      debugger;
       bucket.splice(buckIndex, 1);
       this._counter--;
       if (this._counter < this._limit * 0.25) {
