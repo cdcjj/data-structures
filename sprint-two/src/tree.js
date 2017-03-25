@@ -1,9 +1,11 @@
 var Tree = function(value) {
   var newTree = Object.create(treeMethods);
+  
   newTree.value = value;
-
-  // your code here
   newTree.children = [];  // fixed
+
+  // points to parent
+  newTree.parent;
 
   return newTree;
 };
@@ -13,6 +15,7 @@ var treeMethods = {};
 treeMethods.addChild = function(value) {
   //recursively call Tree function
   var node = Tree(value);
+  node.parent = this;
   this.children.push(node);
 };
 
@@ -30,6 +33,10 @@ treeMethods.contains = function(target) {
   
   searchTarget(this);
   return result;
+};
+
+treeMethods.removeFromParent = function() {
+
 };
 
 

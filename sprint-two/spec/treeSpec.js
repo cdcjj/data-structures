@@ -50,4 +50,21 @@ describe('tree', function() {
     }
   });
 
+  //advanced Tree
+  it('should refer to parent node', function() {
+    tree.addChild(5);
+    tree.children[0].addChild(6);
+    expect(tree.children[0].children[0].parent.value).to.equal(5);
+  });
+
+  it('should disassociate from parent when "removeFromParent" is called', function() {
+    tree.addChild(5);
+    tree.addChild(6);
+    tree.children[0].addChild(7);
+    tree.children[1].addChild(8);
+    tree.children[1].removeFromParent();
+    expect(tree.children[1].parent).to.equal(null);
+    expect(tree.contains(6)).to.equal(false);
+  });
+
 });
